@@ -574,6 +574,9 @@ export class InstructorHomePageComponent extends InstructorSessionModalPageCompo
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }
 
+  /**
+   * Closes all course models on the page.
+   */
   closeAllCourseTabsModels(): void {
     for (let courseTabModel of this.courseTabModels) {
         courseTabModel.isTabExpanded = false;
