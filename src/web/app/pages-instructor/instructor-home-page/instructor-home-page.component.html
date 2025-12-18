@@ -16,7 +16,7 @@
   <div class="col-8" *ngIf="courseTabModels.length > 0">
     <div class="float-end">
       <div class="btn-group" data-toggle="buttons">
-        <button id="close-all-courses" class="btn btn-light"
+        <button id="close-all-courses" class="btn btn-light" [disabled]="!isAnyCourseExpanded"
           (click)="closeAllCourseTabsModels()">Close All</button>
       </div>
       <strong class="d-inline"> Sort By: </strong>

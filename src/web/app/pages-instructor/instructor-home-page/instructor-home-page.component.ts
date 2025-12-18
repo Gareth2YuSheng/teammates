@@ -582,4 +582,11 @@ export class InstructorHomePageComponent extends InstructorSessionModalPageCompo
         courseTabModel.isTabExpanded = false;
     }
   }
+
+  /**
+   * Returns true if at least one course tab is currently expanded.
+   */
+  get isAnyCourseExpanded(): boolean {
+    return this.courseTabModels.some(course => course.isTabExpanded);
+  }
 }
