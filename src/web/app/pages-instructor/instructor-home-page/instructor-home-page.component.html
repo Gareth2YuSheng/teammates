@@ -141,6 +141,10 @@
   </div>
 </tm-loading-retry>
 
+<a *ngIf="isScrolling" class="d-block text-end cursor-pointer" (click)="scrollToTopOfPage()">
+  Back to Top <i class="fas fa-arrow-up"></i>
+</a>
+
 <ng-template #modifiedTimestampsModal>
   <tm-modified-timestamps-modal [coursesOfModifiedSession]="this.coursesOfModifiedSession"
     [modifiedSessions]="this.modifiedSession">

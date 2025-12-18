@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { forkJoin, Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -85,6 +85,7 @@ export class InstructorHomePageComponent extends InstructorSessionModalPageCompo
   isNewUser: boolean = false;
   isCopyLoading: boolean = false;
   isCopyingCourse: boolean = false;
+  isScrolling: boolean = false;
 
   numberOfSessionsCopied = 0;
   totalNumberOfSessionsToCopy = 0;
@@ -556,5 +557,20 @@ export class InstructorHomePageComponent extends InstructorSessionModalPageCompo
    */
   downloadSessionResultEventHandler(tabIndex: number, rowIndex: Index): void {
     this.downloadSessionResult(this.courseTabModels[tabIndex].sessionsTableRowModels[rowIndex]);
+  }
+
+  /**
+   * Shows the scroll to top button if user scrolls more than 300px.
+   */
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    this.isScrolling = window.pageYOffset > 300;
+  }
+
+  /**
+   * Scrolls to the top of the page.
+   */
+  scrollToTopOfPage(): void {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }
 }
