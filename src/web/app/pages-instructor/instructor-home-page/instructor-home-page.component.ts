@@ -557,4 +557,20 @@ export class InstructorHomePageComponent extends InstructorSessionModalPageCompo
   downloadSessionResultEventHandler(tabIndex: number, rowIndex: Index): void {
     this.downloadSessionResult(this.courseTabModels[tabIndex].sessionsTableRowModels[rowIndex]);
   }
+
+  /**
+     * Closes all course models on the page.
+     */
+    closeAllCourseTabsModels(): void {
+      for (let courseTabModel of this.courseTabModels) {
+        courseTabModel.isTabExpanded = false;
+      }
+    }
+
+    /**
+     * Returns true if at least one course tab is currently expanded.
+     */
+    get isAnyCourseExpanded(): boolean {
+      return this.courseTabModels.some(course => course.isTabExpanded);
+    }
 }
