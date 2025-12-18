@@ -1,4 +1,9 @@
-<h1>Home</h1>
+<h1>
+  Home
+  <small *ngIf="hasCoursesLoaded && courseTabModels.length > 0" class="text-muted fw-light ms-2">
+    ({{ courseTabModels.length }} Courses)
+  </small>
+</h1>
 
 <div class="card bg-light" style="margin-bottom: 20px;" *ngIf="isNewUser">
   <div class="card-body">
